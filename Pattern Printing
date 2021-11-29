@@ -1,0 +1,98 @@
+import java.util.Scanner;
+
+public final class PatternT {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		/*
+		 * Spiral printing.
+				Output:
+				4444 444
+				4333 334
+				4322 234
+				4321 234
+				
+				4322 234
+				4333 334
+				4444 444
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please type your preferred number");
+		int input = sc.nextInt();
+		
+		System.out.println("__________________");	
+		
+		//FIRST HALF ROWS
+		for(int a =input; a >= 1; a--) {
+			
+			//first half of the column
+			int c =input;
+			int d = input;
+			
+			for(int b= input; b >=1; b--) {
+				
+				//if statement checking if row is greater or equal to the row
+				if(a >= b) {
+					c = a;
+					System.out.print(c);
+					//end of if statement
+				}else {
+					System.out.print(d);
+				}//end of else statement
+				
+				d--;
+				}//end of column for loop
+			
+
+
+			//SECOND HALF LOOP
+			for(int m=2; m <=input; m++) {
+				
+				if(m <a) {
+					System.out.print(a);
+				}else {
+					System.out.print(m);
+				}
+			}
+	System.out.println("");	
+	}//end of half row loop
+	
+		
+		
+		int c = 2;
+
+		//SECOND HALF ROWS
+				for(int a =2; a <= input; a++) {
+					
+					int d = input;
+					
+					for(int b =input; b >=1; b--) {
+						
+						if(a >= b) {
+							System.out.print(c);
+						}else {
+							System.out.print(d);
+						}
+						
+					d--;
+						}
+					c++;
+					
+					//SECOND HALF LOOP
+					for(int m=2; m <=input; m++) {
+						
+						if(m <a) {
+							System.out.print(a);
+						}else {
+							System.out.print(m);
+						}
+					}
+			System.out.println("");	
+			}//end of half row loop	
+				
+	System.out.println("__________________");	
+	}
+
+}
