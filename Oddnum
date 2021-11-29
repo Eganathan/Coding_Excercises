@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Oddnum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Scanner to get input 
+				Scanner sc = new Scanner(System.in);
+				
+				//requesting starting point input
+				System.out.println("Please enter the starting INT");
+				int first_int = sc.nextInt();
+				
+				//requesting the final number
+				System.out.println("the final INT");
+				int last_int = sc.nextInt();
+				
+					//checks if the number is more than 0
+					if(first_int >=1 || last_int >=1) {
+						
+						//for loop initiated x = first int and runs till x is greater than last_int [but not equal]
+						for(int x = first_int; x < last_int; x++){
+							
+							//checks if its an odd number
+							if(x%2 > 0) {
+								
+								//prints the value of x if x% > 0
+								System.out.print(x + " ");
+								
+								}//end of if statement
+							
+							}//end of for loop
+					
+					//end of if statement 
+					}else {
+						
+						System.out.println("Please enter a valid number!");
+						
+					}
+
+	}
+
+}
