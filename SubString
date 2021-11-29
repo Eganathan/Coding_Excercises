@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class SubString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Scanner object
+		Scanner sc = new Scanner(System.in);
+		
+		//Printing and getting input from the user
+		System.out.println("Please enter your text !");
+		String input = sc.nextLine();
+		
+		//Length of the string 
+		int sLen = input.length();
+		
+		
+		for (int i=0;i<sLen;i++){
+		    for (int k=0;k<sLen-i;k++) {
+		    	
+		       System.out.print(input.substring(k,k+i+1)+","); 
+		    }
+			
+			System.out.println(" "); }	
+
+	}
+
+}
