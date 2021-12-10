@@ -1,0 +1,73 @@
+
+public class Cod_Ex_two {
+
+
+    public static void main(String[] arg) {
+        int[] data = new int[]{1, 2, 3, 4, 5, 6, 7};
+
+
+        assorted(data);
+        //bubbleSort(data);
+    }
+
+    private static void bubbleSort(int[] arr) {
+        boolean run = true;
+        int i = 0;
+        int   j = arr.length;
+        boolean cont = true;
+
+        while(cont){
+            for(int a = 0; a <= j-2; a++){
+
+                if(arr[1] < arr[0]){
+                    cont = false;
+                }
+
+                if(arr[a+1] > arr[a]){
+                    int temp =  arr[a+1];
+
+                    arr[a+1] = arr[a];
+                    arr[a] = temp;
+                }
+
+                printArr(arr);
+            }
+        }
+    }
+
+
+
+    //START of ASSORTED ARRAY
+    // arr is the user array
+    static void assorted(int[] arr){
+        int n = arr.length;
+        int i = 0; // begining of the array
+        int j = n-1; // points to the end of the array
+
+        // the loop runs till i becomes larger than j
+        while (i < j){
+            System.out.print(arr[j] + " "); // prints the arr elemt at j
+            j--; // decrementing the j  j[ backwards
+            System.out.print(arr[i] + " "); // printing the arr element at i
+            i++; // increasing the i [ 0,1,2
+        }
+
+        //since the above loop wont run when i becoms larger then the j
+        // we print the value of the last available
+        if(i%2 !=0){
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+
+    static void printArr(int[] arr){
+        for (int x:arr) {
+            System.out.print(x);
+        }
+        System.out.println("");
+    }
+
+
+
+
+}
