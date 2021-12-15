@@ -1,12 +1,13 @@
 import java.util.Arrays;
 
-public class ArraySorting {
+public class Sort {
 
 	public static void main(String[] arg) {
-		int[] data = new int[] { 1, 2, 3, 4, 5, 6, 7 };
-		// Expected output : 7, 1, 6, 2, 5, 3, 4
 
-		myWay(data);
+		int[] data = new int[] { 7, 4, 6, 2, 5, 1, 3 };
+		int[] data_2 = new int[] { 200, 196, 20, 396, 400, 5, 25, 30, 99 };
+
+		myWay(data_2);
 		// bubbleSort(data);
 	}
 
@@ -21,6 +22,7 @@ public class ArraySorting {
 	 * 
 	 */
 	private static void bubbleSort(int[] arr) {
+		arr = aSortUBS(arr, 0, arr.length - 2); // sorting the unsorted array using bubble sort
 		// 1, 2, 3, 4, 5, 6, 7
 		// 7, 1, 6, 2, 5, 3, 4
 		boolean run = false; // for the do while loop to run
@@ -69,13 +71,14 @@ public class ArraySorting {
 
 	/*
 	 * My Way of solving the above exercise : i would simply prefer to make a new
-	 * empty array with the same size of the user input array and loop through the
-	 * existing array and take the first and last element and insert it to the new
-	 * array last element and first element until there is only 1 element left
-	 * [1,2,3] -> new array[3,1]
+	 * empty array and loop through the existing array and take the first and last
+	 * element and insert it to the new array last element and first element until
+	 * there is only 1 element left [1,2,3] -> new array[3,1,2]
 	 * 
 	 */
 	static void myWay(int[] arr) {
+
+		arr = aSortUBS(arr, 0, arr.length - 2); // sorting the unsorted array using bubble sort
 
 		int aLen = arr.length - 1; // storing the array length
 		int[] resultArr = new int[aLen + 1]; // new array to store results
@@ -98,6 +101,44 @@ public class ArraySorting {
 		printArr(resultArr); // printing the array
 	}
 	// END OF myWay Solution
+
+	/*
+	 * Logic: Here using bubble sort we are checking two elements next to each other
+	 * and if the adjacent element's value is smaller than the current index value
+	 * then we swap it and turn on the flag so recursive 2nd loop runs till the flag
+	 * is set to false the output with the array sorted is received as output
+	 */
+
+	// Start of Ascending Sorting using Bubble sort Algo
+	static int[] aSortUBS(int[] arr, int low, int high) {
+
+		boolean run = false; // flag to recursion
+
+		for (int i = low; i <= high; i++) {
+			// looping through the array from low -> high
+			if (arr[i + 1] < arr[i]) {
+				// if the value if i+1 is smaller then we swap
+
+				run = true; // recursion flag to true
+				// swaping
+				int temp = arr[i];
+
+				arr[i] = arr[i + 1];
+				arr[i + 1] = temp;
+			}
+		}
+
+		if (run) {
+			// recursion criteria
+			aSortUBS(arr, low, high - 1);
+			// the high is reduced by one as it would have been sorted
+			// to avoid the extra iteration
+		}
+
+		// returns the sorted array
+		return arr;
+	}
+	// END OF SORTED ARRAY
 
 	// method to print the given array
 	static void printArr(int[] arr) {
